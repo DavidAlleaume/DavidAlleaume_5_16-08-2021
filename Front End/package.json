@@ -1,0 +1,19 @@
+{
+  "name": "p5",
+  "version": "1.0.0",
+  "description": "\"OpenClassrooms projet 5\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidAlleaume/DavidAlleaume_5_16-08-2021.git"
+  },
+  "author": "\"David Alleaume\"",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DavidAlleaume/DavidAlleaume_5_16-08-2021/issues"
+  },
+  "homepage": "https://github.com/DavidAlleaume/DavidAlleaume_5_16-08-2021#readme"
+}
