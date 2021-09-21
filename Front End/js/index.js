@@ -24,7 +24,7 @@ function GetProductsInfos() {
         )
         .catch((err) => {
             let errMessage = `<div class="m-auto alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Désolé!</strong></br>Nous ne parvenons pas à afficher les produits sur cette page.</br>Veuillez svp
+            <strong>Désolé!</strong></br>Nous ne parvenons pas à afficher le contenu de cette page.</br>Veuillez svp
             vous connecter au port 3000 puis éssayer de nouveau.
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">×</span>

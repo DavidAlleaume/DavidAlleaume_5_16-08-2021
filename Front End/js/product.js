@@ -19,7 +19,7 @@ function getProductInfos() {
                     const price = product.price / 100;
                     productPrice.innerText = `${price} €`;
                     for (let lens of product.lenses) {
-                        //console.log(lens);
+                        console.log(lens);
                         let option = lens;
                         let lensOption = `<option>${option}</option>`;
                         document.getElementById('lensOptions').innerHTML += lensOption;
@@ -40,29 +40,36 @@ function getProductInfos() {
 
 getProductInfos();
 
-// Envoi des infos 
+// Récupération des données envoyées dans le panier au moment du clic sur "add to cart" sous forme d'un objet
 
-const addToCart = document.querySelector(`#addToCart`);
-const cartBadge = document.querySelector(`.cartBadge`);
-const numberOfProducts = document.querySelector(`#numberOfProducts`);
-addToCart.addEventListener(`click`, () => {
-    if (numberOfProducts.value > 0 && numberOfProducts.value <= 10) {
-        console.log(numberOfProducts.value);
-        let productAdded = {
+const addToCartBtn = document.querySelector(`#addToCartBtn`);
+const numberOfAddedProducts = document.querySelector(`#numberOfAddedProducts`);
+
+addToCartBtn.addEventListener(`click`, () => {
+    if (numberOfAddedProducts.value > 0 && numberOfAddedProducts.value <= 10) {
+        //console.log(numberOfAddedProducts.value);
+        let productAddedToCart = {
             name: productName.innerText,
-            quantity: parseFloat(numberOfProducts.value),
+            quantity: parseFloat(numberOfAddedProducts.value),
             price: parseFloat(productPrice.innerText),
             _id: id,
         };
-        console.log(productAdded);
+        //console.log(productAddedToCart);
 
-        let cart = [
+        let cartContent = [];
+        //console.log(cartContent);
 
-        ]
+        // Vérification du contenu du Local Storage, si il contient déjà un objet, on l'ajoute au panier
 
+        if (localStorage.getItem(`items`) != null) {
+            cartContent = JSON.parse(localStorage.getItem(`items`));
+        }
+        // ...si il est vide on y ajoute le contenu de notre panier
+        cartContent.push(productAddedToCart);
+        localStorage.setItem(`items`, JSON.stringify(cartContent));
 
-    } else if (numberOfProducts.value <= 0) {
-        document.querySelector(`.cartBadge`).classList.add('invisible');
+        //console.log(localStorage);
+
     } else {
         alert(`Désolé, votre panier ne peut contenir plus de 10 articles.`);
     }

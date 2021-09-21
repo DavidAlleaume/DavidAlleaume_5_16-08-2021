@@ -25,5 +25,7 @@ footer a {
     background-image: url(assets/antique-cameras-black-white\ Resized\ &\ Compressed.jpg);
     background-position: center;
 }
-
+.selectNumber {
+    width: 60px;
+}
 
