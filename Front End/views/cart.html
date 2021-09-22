@@ -57,29 +57,22 @@
                         <th scope="col">Produit</th>
                         <th scope="col">Quantité</th>
                         <th scope="col">Prix</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody id="cartRowsContainer">
-                    <!--<tr>
-                        <th scope="row">Canon px2230</th>
-                        <td>1</td>
-                        <td>599,00€</td>
-                    <tr>
-                        <th scope="row">Minolta vk5812</th>
-                        <td>1</td>
-                        <td>200,00€</td>
-                    </tr>-->
                 </tbody>
             </table>
+            <input class="btn btn-danger mt-5 mb-5 col-6" type="submit" value="Vider le panier">
             <table class="table col-4">
-                <thead class="thead-light">
+                <thead class="thead-dark">
                     <tr>
                         <th scope="col">Montant total :</th>
-                        <th scope="col">799.00€</th>
+                        <th id="totalPrice" scope="col"></th>
                     </tr>
                 </thead>
             </table>
-            <input class="btn btn-primary" type="submit" value="Vider le panier">
+
             <h3 class="mt-5 mb-4">Vos coordonnées</h3>
             <form id="formulaire" class="container">
                 <div class="d-flex flex-row mb-3">

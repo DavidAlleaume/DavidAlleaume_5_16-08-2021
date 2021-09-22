@@ -5,6 +5,7 @@ function NewCartRow(product) {
                         <td><input class="selectNumber" id="numberOfAddedProducts" type="number" name="numberOfAddedProducts"
                         value="${product.quantity}" min="1"></td>
                         <td>${totalPricePerProduct} €</td>
+                        <td><button type="button" class="btn btn-danger">Supprimer</button></td>
                     <tr>`
     document.getElementById(`cartRowsContainer`).innerHTML += cartRow;
 };
