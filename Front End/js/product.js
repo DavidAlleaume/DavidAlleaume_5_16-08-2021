@@ -1,10 +1,13 @@
+//utilisation de la propriété searchParams et de la requête Get pour accéder à l'ID du produit et la placer dans une varialble id
 let params = new URLSearchParams(document.location.search);
 let id = params.get("id");
+//Accéder à certains éléments du DOM et les placer dans des variables
 const productImage = document.querySelector(`#product_img`);
 const productName = document.querySelector(`#product_name`);
 const productDescription = document.querySelector(`#product_description`);
 const productPrice = document.querySelector(`#product_price`);
-const lensOptions = document.querySelector(`#lensOptions`);
+
+//Utilisation de la méthode Fetch en ajoutant à l'URL l'id du produit pour accéder aux infos du seul produit concerné
 
 function getProductInfos() {
     fetch(`http://localhost:3000/api/cameras/${id}`)
