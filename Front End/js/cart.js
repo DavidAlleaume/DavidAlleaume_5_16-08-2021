@@ -5,7 +5,7 @@ function NewCartRow(product) {
                         <td><input class="selectNumber" id="numberOfAddedProducts" type="number" name="numberOfAddedProducts"
                         value="${product.quantity}" min="1"></td>
                         <td>${totalPricePerProduct} €</td>
-                        <td><button type="button" class="btn btn-danger">Supprimer</button></td>
+                        <td><button type="button" class="remove_product_btn btn btn-danger">Supprimer</button></td>
                     <tr>`
     document.getElementById(`cartRowsContainer`).innerHTML += cartRow;
 };
@@ -22,18 +22,40 @@ const emptyCartAlert = `<div class="alert alert-warning alert-dismissible fade s
 let cartContent = [];
 
 function GetItemsFromLocalStorage() {
-    if (localStorage.getItem(`items`) == null) {
+    if (localStorage.getItem(`cart-key`) == null) {
         document.getElementById(`emptyCartAlert`).innerHTML = emptyCartAlert;
     } else {
-        cartContent = JSON.parse(localStorage.getItem('items'));
-        console.log(cartContent);
+        cartContent = JSON.parse(localStorage.getItem('cart-key'));
+        //console.log(cartContent);
         for (let i = 0; i < cartContent.length; i++) {
             NewCartRow(cartContent[i]);
         }
     }
 };
 
-GetItemsFromLocalStorage();
+GetItemsFromLocalStorage()
+
+console.log(cartContent)
+
+let removeProductBtn = document.getElementsByClassName(`remove_product_btn`)
+console.log(removeProductBtn)
+
+for (let i = 0; i < removeProductBtn.length; i++) {
+    let button = removeProductBtn[i]
+    button.addEventListener(`click`, (e) => {
+        let buttonClicked = e.target
+        buttonClicked.parentElement.parentElement.remove()
+        let product = cartContent[i]
+        console.log(product._id)
+        function Match(id) {
+            return id._id === product._id
+        }
+        let index = cartContent.findIndex(Match)
+        console.log(index)
+        cartContent.splice(index, 1)
+        localStorage.setItem(`cart-key`, JSON.stringify(cartContent))
+    })
+}
 
 
 /*const formulaire = document.getElementById(`formulaire`);

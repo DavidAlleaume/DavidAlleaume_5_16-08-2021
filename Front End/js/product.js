@@ -49,7 +49,7 @@ const addToCartBtn = document.querySelector(`#addToCartBtn`);
 const numberOfAddedProducts = document.querySelector(`#numberOfAddedProducts`);
 
 addToCartBtn.addEventListener(`click`, () => {
-    if (numberOfAddedProducts.value > 0 && numberOfAddedProducts.value <= 10) {
+    if (numberOfAddedProducts.value > 0) {
         //console.log(numberOfAddedProducts.value);
         let productAddedToCart = {
             name: productName.innerText,
@@ -58,27 +58,18 @@ addToCartBtn.addEventListener(`click`, () => {
             _id: id,
         };
         //console.log(productAddedToCart);
-
         let cartContent = [];
         //console.log(cartContent);
-
         // Vérification du contenu du Local Storage, si il contient déjà un objet, on l'ajoute au panier
-
-        if (localStorage.getItem(`items`) != null) {
-            cartContent = JSON.parse(localStorage.getItem(`items`));
+        if (localStorage.getItem(`cart-key`) != null) {
+            cartContent = JSON.parse(localStorage.getItem(`cart-key`));
         }
         // ...si il est vide on y ajoute le contenu de notre panier
         cartContent.push(productAddedToCart);
-        localStorage.setItem(`items`, JSON.stringify(cartContent));
-
+        localStorage.setItem(`cart-key`, JSON.stringify(cartContent));
         //console.log(localStorage);
-
-    } else {
-        alert(`Désolé, votre panier ne peut contenir plus de 10 articles.`);
     }
 })
-
-
 
 
 
