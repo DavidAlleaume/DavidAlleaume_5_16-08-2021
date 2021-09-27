@@ -35,10 +35,10 @@ function GetItemsFromLocalStorage() {
 
 GetItemsFromLocalStorage()
 
-console.log(cartContent)
+//console.log(cartContent)
 
 let removeProductBtn = document.getElementsByClassName(`remove_product_btn`)
-console.log(removeProductBtn)
+//console.log(removeProductBtn)
 
 for (let i = 0; i < removeProductBtn.length; i++) {
     let button = removeProductBtn[i]
@@ -46,14 +46,16 @@ for (let i = 0; i < removeProductBtn.length; i++) {
         let buttonClicked = e.target
         buttonClicked.parentElement.parentElement.remove()
         let product = cartContent[i]
-        console.log(product._id)
+        //console.log(product._id)
         function Match(id) {
             return id._id === product._id
         }
         let index = cartContent.findIndex(Match)
-        console.log(index)
+        //console.log(index)
         cartContent.splice(index, 1)
         localStorage.setItem(`cart-key`, JSON.stringify(cartContent))
+        alert(`Voulez-vous vraiment supprimer ce produit de votre panier ?`)
+        window.location.reload()
     })
 }
 
