@@ -34,8 +34,7 @@ function GetProductsInfos() {
         });
 };
 
-GetProductsInfos();
-
+GetProductsInfos()
 
 
 

@@ -1,17 +1,3 @@
-function NewCartRow(product) {
-    let totalPricePerProduct = product.quantity * product.price;
-    const cartRow = `<tr>
-                        <th scope="row">${product.name}</th>
-                        <td><input class="selectNumber" id="numberOfAddedProducts" type="number" name="numberOfAddedProducts"
-                        value="${product.quantity}" min="1"></td>
-                        <td>${totalPricePerProduct} €</td>
-                        <td><button type="button" class="remove_product_btn btn btn-danger">Supprimer</button></td>
-                    <tr>`
-    document.getElementById(`cartRowsContainer`).innerHTML += cartRow;
-};
-
-//console.log(localStorage.getItem(`items`));
-
 const emptyCartAlert = `<div class="alert alert-warning alert-dismissible fade show" role="alert">
 <h5 class="alert-heading text-center">Votre panier est vide !</h5>
 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -19,23 +5,37 @@ const emptyCartAlert = `<div class="alert alert-warning alert-dismissible fade s
 </button>
 </div>`;
 
-let cartContent = [];
+let cartContent = []
+
+function NewCartRow(product) {
+    let totalPricePerProduct = product.quantity * product.price
+    const cartRow = `<tr>
+                        <th scope="row">${product.name}</th>
+                        <td><input class="selectNumber" id="numberOfAddedProducts" type="number" name="numberOfAddedProducts"
+                        value="${product.quantity}" min="1"></td>
+                        <td>${totalPricePerProduct} €</td>
+                        <td><button type="button" class="remove_product_btn btn btn-danger">Supprimer</button></td>
+                    <tr>`
+    document.getElementById(`cartRowsContainer`).innerHTML += cartRow
+}
+
+//console.log(localStorage.getItem(`items`))
 
 function GetItemsFromLocalStorage() {
     if (localStorage.getItem(`cart-key`) == null) {
-        document.getElementById(`emptyCartAlert`).innerHTML = emptyCartAlert;
+        document.getElementById(`emptyCartAlert`).innerHTML = emptyCartAlert
     } else {
-        cartContent = JSON.parse(localStorage.getItem('cart-key'));
-        //console.log(cartContent);
+        cartContent = JSON.parse(localStorage.getItem('cart-key'))
+        //console.log(cartContent)
         for (let i = 0; i < cartContent.length; i++) {
-            NewCartRow(cartContent[i]);
+            NewCartRow(cartContent[i])
         }
     }
-};
+}
 
 GetItemsFromLocalStorage()
 
-//console.log(cartContent)
+console.log(cartContent)
 
 let removeProductBtn = document.getElementsByClassName(`remove_product_btn`)
 //console.log(removeProductBtn)
@@ -58,6 +58,19 @@ for (let i = 0; i < removeProductBtn.length; i++) {
         window.location.reload()
     })
 }
+
+// Fonction permettant de vider tout le contenu du panier eà l'écran et dans le Local Storage 
+// lorsqu'on clique sur le bouton "Vider le panier"
+
+let clearCartBtn = document.getElementsByClassName(`empty_cart__btn`)
+//console.log(clearCartBtn)
+
+clearCartBtn[0].addEventListener(`click`, () => {
+    alert(`Souhaitez-vous vraiment vider tout le contenu de votre panier ?`)
+    let cartRowsContainer = document.getElementById(`cartRowsContainer`)
+    cartRowsContainer.remove()
+    localStorage.clear()
+})
 
 
 /*const formulaire = document.getElementById(`formulaire`);
