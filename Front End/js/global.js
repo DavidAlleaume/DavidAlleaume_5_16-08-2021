@@ -1,6 +1,9 @@
+let cartBadge = document.getElementById(`cartBadge`)
+console.log(cartBadge)
+
 function GetQuantityFromLs() {
     if (localStorage.getItem(`cart-key`) != null) {
-        cartContent = JSON.parse(localStorage.getItem(`cart-key`));
+        cartContent = JSON.parse(localStorage.getItem(`cart-key`))
         let totalQuantity = 0
         for (let i = 0; i < cartContent.length; i++) {
             let product = cartContent[i]
@@ -8,16 +11,18 @@ function GetQuantityFromLs() {
             totalQuantity += product.quantity
             console.log(totalQuantity)
         }
-        let cartBadge = document.querySelector(`.cartBadge`)
         if (totalQuantity > 0) {
+            cartBadge.classList.add('cartBadge', 'position-absolute', 'top-0', 'start-100', 'translate-middle', 'badge', 'rounded-pill', 'bg-danger')
             cartBadge.innerText = `+ ${totalQuantity}`
-        } else {
-            cartBadge.style.visibility = `hidden`
         }
     }
 }
 
 GetQuantityFromLs()
+
+let addToCartBtn = document.querySelector(`#addToCartBtn`)
+
+addToCartBtn.addEventListener(`click`, GetQuantityFromLs, false)
 
 
 

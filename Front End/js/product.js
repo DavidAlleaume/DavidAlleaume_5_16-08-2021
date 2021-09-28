@@ -45,7 +45,7 @@ getProductInfos();
 
 // Récupération des données envoyées dans le panier au moment du clic sur "add to cart" sous forme d'un objet
 
-const addToCartBtn = document.querySelector(`#addToCartBtn`);
+
 const numberOfAddedProducts = document.querySelector(`#numberOfAddedProducts`);
 
 addToCartBtn.addEventListener(`click`, () => {

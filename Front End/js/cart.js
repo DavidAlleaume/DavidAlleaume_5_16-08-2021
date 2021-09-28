@@ -69,7 +69,9 @@ clearCartBtn[0].addEventListener(`click`, () => {
     alert(`Souhaitez-vous vraiment vider tout le contenu de votre panier ?`)
     let cartRowsContainer = document.getElementById(`cartRowsContainer`)
     cartRowsContainer.remove()
+    cartBadge.remove()
     localStorage.clear()
+    document.getElementById(`emptyCartAlert`).innerHTML = emptyCartAlert
 })
 
 
@@ -79,3 +81,5 @@ formulaire.addEventListener(`submit`,(e) =>{
     e.preventDefault()
     console.log(`traitement du formumaire`)
 })*/
+
+console.log(localStorage)
