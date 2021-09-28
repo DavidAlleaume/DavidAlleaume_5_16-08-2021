@@ -1,14 +1,14 @@
 function NewCard(camera) {
-    console.log(camera);
-    const price = camera.price / 100;
+    //console.log(camera)
+    const price = camera.price / 100
     let card = `<div class="col-12 col-md-4"><div class="card shadow p-3 mb-5 bg-white rounded">
     <img src="${camera.imageUrl}" class="card-img-top" alt="">
     <div class="card-body">
     <h5 id="name" class="card-title">${camera.name}</h5>
     <p id="price" class="card-text">${price} €</p>
     <a href="./views/product.html?id=${camera._id}" class="btn btn-info">Découvrir</a>
-    </div></div></div>`;
-    document.getElementById('card-container').innerHTML += card;
+    </div></div></div>`
+    document.getElementById('card-container').innerHTML += card
 }
 
 function GetProductsInfos() {
@@ -16,9 +16,9 @@ function GetProductsInfos() {
         .then((res) =>
             res.json()
                 .then((data) => {
-                    console.log(data);
+                    console.log(data)
                     for (let i = 0; i < data.length; i += 1) {
-                        NewCard(data[i]);
+                        NewCard(data[i])
                     }
                 })
         )
@@ -29,10 +29,10 @@ function GetProductsInfos() {
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
-            </div>`;
-            document.getElementById('card-container').innerHTML = errMessage;
-        });
-};
+            </div>`
+            document.getElementById('card-container').innerHTML = errMessage
+        })
+}
 
 GetProductsInfos()
 

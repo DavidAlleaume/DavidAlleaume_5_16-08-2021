@@ -1,5 +1,25 @@
+let cartContent = [];
+//console.log(cartContent);
+
+function CartInit() {
+    let productAddedToCart = {
+        name: productName.innerText,
+        quantity: parseFloat(numberOfAddedProducts.value),
+        price: parseFloat(productPrice.innerText),
+        _id: id,
+    };
+    //console.log(productAddedToCart);
+    // Vérification du contenu du Local Storage, si il contient déjà un objet, on l'ajoute au panier
+    if (localStorage.getItem(`cart-key`) != null) {
+        cartContent = JSON.parse(localStorage.getItem(`cart-key`));
+    }
+    // ...si il est vide on y ajoute le contenu de notre panier
+    cartContent.push(productAddedToCart);
+    localStorage.setItem(`cart-key`, JSON.stringify(cartContent));
+    //console.log(localStorage);
+}
+
 let cartBadge = document.getElementById(`cartBadge`)
-console.log(cartBadge)
 
 function GetQuantityFromLs() {
     if (localStorage.getItem(`cart-key`) != null) {
@@ -22,7 +42,8 @@ GetQuantityFromLs()
 
 let addToCartBtn = document.querySelector(`#addToCartBtn`)
 
-addToCartBtn.addEventListener(`click`, GetQuantityFromLs, false)
+
+
 
 
 

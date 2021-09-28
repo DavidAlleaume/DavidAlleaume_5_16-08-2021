@@ -3,9 +3,7 @@ const emptyCartAlert = `<div class="alert alert-warning alert-dismissible fade s
 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">×</span>
 </button>
-</div>`;
-
-let cartContent = []
+</div>`
 
 function NewCartRow(product) {
     let totalPricePerProduct = product.quantity * product.price
@@ -35,7 +33,6 @@ function GetItemsFromLocalStorage() {
 
 GetItemsFromLocalStorage()
 
-console.log(cartContent)
 
 let removeProductBtn = document.getElementsByClassName(`remove_product_btn`)
 //console.log(removeProductBtn)
@@ -59,11 +56,14 @@ for (let i = 0; i < removeProductBtn.length; i++) {
     })
 }
 
+if (removeProductBtn.length === 0) {
+    document.getElementById(`emptyCartAlert`).innerHTML = emptyCartAlert
+}
+
 // Fonction permettant de vider tout le contenu du panier eà l'écran et dans le Local Storage 
 // lorsqu'on clique sur le bouton "Vider le panier"
 
 let clearCartBtn = document.getElementsByClassName(`empty_cart__btn`)
-//console.log(clearCartBtn)
 
 clearCartBtn[0].addEventListener(`click`, () => {
     alert(`Souhaitez-vous vraiment vider tout le contenu de votre panier ?`)
@@ -81,5 +81,3 @@ formulaire.addEventListener(`submit`,(e) =>{
     e.preventDefault()
     console.log(`traitement du formumaire`)
 })*/
-
-console.log(localStorage)
