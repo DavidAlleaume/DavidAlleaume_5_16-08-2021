@@ -117,20 +117,53 @@ TotalPriceInCart()
 
 
 
+// Création de la requête JSON contenant l'objet contact et le tableau products 
+//lorsqu'on clique sur "Commander"
 
+const firstNameInput = document.querySelector(`#firstName`)
+const lastNameInput = document.querySelector(`#lastName`)
+const addressInput = document.querySelector(`#address`)
+const cityInput = document.querySelector(`#city`)
+const emailInput = document.querySelector(`#email`)
+const orderForm = document.querySelector(`#orderForm`)
 
-
-
-
-
-
-
-
-//const priceArray = cartContent.map(function(product) {
-    //return product.price
-//})
-
-
-
-
-
+orderForm.addEventListener(`submit`, (e) => {
+    e.preventDefault()
+    let productsOrdered = []
+    cartContent.forEach((product) => {
+        productsOrdered.push(product._id)
+        console.log(productsOrdered)
+        const order = {
+            contact: {
+                firstName: firstNameInput.value,
+                lastName: lastNameInput.value,
+                address: addressInput.value,
+                city: cityInput.value,
+                email: emailInput.value,
+            },
+            products: productsOrdered,
+        }
+        const postRequest = {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(order),
+        }
+        fetch(`http://localhost:3000/api/cameras/order`, postRequest)
+            .then((res) =>
+                res.json()
+                    .then((data) => {
+                        console.log(data)
+                        localStorage.clear()
+                        let values = []
+                        let totalPriceConfirmation = parseFloat(TOTALPRICE.innerText)
+                        let confirmationValues = {
+                            orderId: data.orderId,
+                            total: totalPriceConfirmation
+                        }
+                        //console.log(confirmationValues)
+                        values.push(confirmationValues)
+                        localStorage.setItem(`confirmation-key`, JSON.stringify(values))
+                    })
+            )
+    })
+})

@@ -24,7 +24,7 @@ function getProductInfos() {
                     for (let lens of product.lenses) {
                         console.log(lens)
                         let option = lens
-                        let lensOption = `<option>${option}</option>`
+                        let lensOption = `<option class="result" value="${option}">${option}</option>`
                         document.getElementById('lensOptions').innerHTML += lensOption
                     }
                 })
@@ -43,6 +43,16 @@ function getProductInfos() {
 
 getProductInfos()
 
+// Ajout d'un addEventListener sur l'input select qui permet de renvoyer l'option choisie
+/*const selectedOption = document.querySelector(`#lensOptions`)
+if (selectedOption) {
+    selectedOption.addEventListener(`change`, (e) => {
+        const result = document.querySelector(`.result`)
+        result.textContent = `${e.target.value}`
+        console.log(result.textContent)
+    })
+}*/
+
 // Récupération des données envoyées dans le panier au moment du clic sur "add to cart" sous forme d'un objet
 const numberOfAddedProducts = document.querySelector(`#numberOfAddedProducts`)
 
@@ -52,6 +62,9 @@ addToCartBtn.addEventListener(`click`, () => {
         GetQuantityFromLs()
     }
 })
+
+
+
 
 
 
