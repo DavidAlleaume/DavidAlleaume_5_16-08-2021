@@ -154,15 +154,12 @@ orderForm.addEventListener(`submit`, (e) => {
                     .then((data) => {
                         console.log(data)
                         localStorage.clear()
-                        let values = []
                         let totalPriceConfirmation = parseFloat(TOTALPRICE.innerText)
-                        let confirmationValues = {
-                            orderId: data.orderId,
-                            total: totalPriceConfirmation
-                        }
-                        //console.log(confirmationValues)
-                        values.push(confirmationValues)
-                        localStorage.setItem(`confirmation-key`, JSON.stringify(values))
+                        console.log(data.orderId)
+                        console.log(totalPriceConfirmation)
+                        localStorage.setItem(`orderId`, JSON.stringify(data.orderId))
+                        localStorage.setItem(`total`, JSON.stringify(totalPriceConfirmation))
+                        window.location.href = "http://127.0.0.1:5500/Front%20End/views/confirmation.html"
                     })
             )
     })
