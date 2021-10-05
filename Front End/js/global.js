@@ -5,6 +5,7 @@ function CartInit() {
     let productAddedToCart = {
         name: productName.innerText,
         quantity: parseFloat(numberOfAddedProducts.value),
+        lens: document.getElementById(`lensOptions`).value,
         price: parseFloat(productPrice.innerText),
         _id: id,
     };

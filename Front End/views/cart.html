@@ -49,50 +49,57 @@
     <main>
         <div class="container mb-5">
             <div id="emptyCartAlert"></div>
-
-            <h3 class="mb-4">Votre panier</h3>
-            <table id="cart" class="table col-6">
-                <thead>
-                    <tr>
-                        <th scope="col">Produit</th>
-                        <th scope="col">Quantité</th>
-                        <th scope="col">Prix</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="cartRowsContainer">
-                </tbody>
-            </table>
-            <button type="button" class="empty_cart__btn btn btn-danger mt-5 mb-5 col-6">Vider le panier</button>
-            <table class="table col-4">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Montant total :</th>
-                        <th id="totalPrice" scope="col"></th>
-                    </tr>
-                </thead>
-            </table>
-
-            <h3 class="mt-5 mb-4">Vos coordonnées</h3>
-            <form id="orderForm" class="container">
-                <div class="d-flex flex-row mb-3">
-                    <input id="firstName" required=required type="text" class="form-control col-3" placeholder="Prénom">
-                    <input id="lastName" required=required type="text" class="ml-3 form-control col-3"
-                        placeholder="Nom">
-                </div>
-                <div class="mb-3">
-                    <input id="address" required=required type="text" class="form-control col-6"
-                        placeholder="Rue et n°">
-                </div>
-                <div class="d-flex flex-row mb-3">
-                    <input required=required type="number" class="form-control col-2" placeholder="Code postal">
-                    <input id="city" required=required type="text" class="ml-3 form-control col-4" placeholder="Ville">
-                </div>
-                <input id="email" required=required type="email" class="form-control col-4 mb-5" id="exampleInputEmail1"
-                    placeholder="email">
-                <button id="OrderBtn" type="submit" class="btn btn-primary mb-5 col-6">Commander</button>
-            </form>
-
+            <div class="row col-10 m-auto">
+                <h3 class="col-12 mb-5">Votre panier</h3>
+                <table id="cart" class="table col-12">
+                    <thead>
+                        <tr>
+                            <th scope="col">Produit</th>
+                            <th scope="col">Quantité</th>
+                            <th scope="col">Prix</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="cartRowsContainer">
+                    </tbody>
+                </table>
+                <table class="table col-6 mt-5 h-50 mx-auto">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Montant total :</th>
+                            <th id="totalPrice" scope="col"></th>
+                        </tr>
+                    </thead>
+                </table>
+                <button type="button" class="empty_cart__btn btn btn-primary mx-auto mt-5 mb-5 col-8">
+                    Vider le panier
+                </button>
+            </div>
+            <div class="row col-10 mx-auto">
+                <h3 class="col-12 mt-5 mb-4">Vos coordonnées</h3>
+                <form id="orderForm" class="row col-10 mx-auto">
+                    <div class="col-6 mb-3">
+                        <input id="firstName" required=required type="text" class="form-control" placeholder="Prénom">
+                    </div>
+                    <div class="col-6">
+                        <input id="lastName" required=required type="text" class="form-control" placeholder="Nom">
+                    </div>
+                    <div class="col-12 mb-3">
+                        <input id="address" required=required type="text" class="form-control" placeholder="Rue et n°">
+                    </div>
+                    <div class="col-6 mb-3">
+                        <input required=required type="text" class="form-control" placeholder="Code postal">
+                    </div>
+                    <div class="col-md-6">
+                        <input id="city" required=required type="text" class="form-control" placeholder="Ville">
+                    </div>
+                    <div class="col-12 mb-5">
+                        <input id="email" required=required type="email" class="form-control" id="exampleInputEmail1"
+                            placeholder="email">
+                    </div>
+                    <button id="OrderBtn" type="submit" class="btn btn-primary mb-5 mx-auto col-10">Commander</button>
+                </form>
+            </div>
         </div>
     </main>
     <footer class="bg-dark">
