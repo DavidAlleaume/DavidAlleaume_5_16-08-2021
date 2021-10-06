@@ -5,12 +5,12 @@ const emptyCartAlert = `<div class="alert alert-warning alert-dismissible fade s
 </button>
 </div>`
 
-function NewCartRow(product, i) {
+function NewCartRow(product) {
     let totalPricePerProduct = product.quantity * product.price
     const cartRow = `<tr>
                         <th scope="row">${product.name}</th>
-                        <td><input class="quantityInput" type="number" name="numberOfAddedProducts 
-                        onchange="updatequantity(this, ${i})" value="${product.quantity}" min="1"></td>
+                        <td><input class="quantityInput" type="number" name="numberOfAddedProducts" 
+                        value="${product.quantity}" min="1"></td>
                         <td class="totalPricePerProduct">${totalPricePerProduct} €</td>
                         <td><button type="button" class="remove_product_btn btn btn-danger btn-sm"><svg width="15" aria-hidden="true" focusable="false" data-prefix="far" data-icon="trash-alt" class="svg-inline--fa fa-trash-alt fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M268 416h24a12 12 0 0 0 12-12V188a12 12 0 0 0-12-12h-24a12 12 0 0 0-12 12v216a12 12 0 0 0 12 12zM432 80h-82.41l-34-56.7A48 48 0 0 0 274.41 0H173.59a48 48 0 0 0-41.16 23.3L98.41 80H16A16 16 0 0 0 0 96v16a16 16 0 0 0 16 16h16v336a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128h16a16 16 0 0 0 16-16V96a16 16 0 0 0-16-16zM171.84 50.91A6 6 0 0 1 177 48h94a6 6 0 0 1 5.15 2.91L293.61 80H154.39zM368 464H80V128h288zm-212-48h24a12 12 0 0 0 12-12V188a12 12 0 0 0-12-12h-24a12 12 0 0 0-12 12v216a12 12 0 0 0 12 12z"></path></svg></button></td>
                     <tr>`
@@ -26,7 +26,7 @@ function GetItemsFromLocalStorage() {
         cartContent = JSON.parse(localStorage.getItem('cart-key'))
         //console.log(cartContent)
         for (let i = 0; i < cartContent.length; i++) {
-            NewCartRow(cartContent[i], i)
+            NewCartRow(cartContent[i])
         }
     }
 }
@@ -35,11 +35,6 @@ GetItemsFromLocalStorage()
 
 // changement de la quantité dans le panier
 
-function updatequantity(element, i) {
-    //let quantityInput = document.getElementsByClassName(`quantityInput`)
-    //quantityInput = quantityInput.value
-    console.log(element, i)
-}
 
 // Retrait d'une ligne produit du panier au clic sur le bouton "supprimer"
 
@@ -146,7 +141,7 @@ orderForm.addEventListener(`submit`, (e) => {
                         console.log(totalPriceConfirmation)
                         localStorage.setItem(`orderId`, JSON.stringify(data.orderId))
                         localStorage.setItem(`total`, JSON.stringify(totalPriceConfirmation))
-                        window.location.href = "http://127.0.0.1:5500/Front%20End/views/confirmation.html"
+                        window.location.href = "http://127.0.0.1:5500/views/confirmation.html"
                     })
             )
     })
