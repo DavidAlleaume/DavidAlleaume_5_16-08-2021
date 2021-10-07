@@ -1,12 +1,14 @@
 body {
     position: relative;
     min-height: 100vh;
+    min-width: 300px;
 }
 header {
     height: 5rem;
 }
 .navbar-brand {
     font-size: 1.5rem;
+    margin-right: 50px;
 }
 header a {
     font-size: 1.1rem;
@@ -21,12 +23,43 @@ footer a {
     color: #fff;
 }
 .jumbotron {
-    height: 300px;
-    background-image: url(assets/antique-cameras-black-white\ Resized\ &\ Compressed.jpg);
+    position: relative;
+    height: 200px;
+}
+.jumbotron::before {
+    content: '';
+    background-image: url(/assets/analog-g0ba556bec_640.jpg);
     background-position: center;
+    background-size: cover;
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.title {
+    position: relative;
+    color: white;
+    font-weight: 600;
+    font-size: 3em;
+}
+.subTitle {
+    font-size: 2em;
+    font-weight: 400;
 }
 .selectNumber {
     width: 60px;
 }
+@media screen and (max-width: 992px) {
+    .title {
+        font-weight: 500;
+        font-size: 2.5em;
+    }
+    .subTitle {
+        font-size: 2em;
+    }
+}
+
 
 
