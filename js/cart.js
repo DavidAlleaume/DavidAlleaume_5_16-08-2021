@@ -9,8 +9,8 @@ function NewCartRow(product) {
     let totalPricePerProduct = product.quantity * product.price
     const cartRow = `<tr>
                         <th scope="row">${product.name}</th>
-                        <td><input class="quantityInput" type="number" name="numberOfAddedProducts" 
-                        value="${product.quantity}" min="1"></td>
+                        <td>${product.lens}</td>
+                        <td>${product.quantity}</td>
                         <td class="totalPricePerProduct">${totalPricePerProduct} €</td>
                         <td><button type="button" class="remove_product_btn btn btn-danger btn-sm">
                                 <svg width="15" aria-hidden="true" focusable="false" data-prefix="far" data-icon="trash-alt" class="svg-inline--fa fa-trash-alt fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
