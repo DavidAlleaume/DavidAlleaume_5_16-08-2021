@@ -49,9 +49,9 @@
 
     <main>
         <div class="container mb-5">
-            <div id="emptyCartAlert"></div>
             <div class="row">
                 <h3 class="col-12 mb-5 text-center">Votre panier</h3>
+                <div id="emptyCartAlert" class="col-10 m-auto"></div>
                 <table id="cart" class="table col-sm-10 mx-auto mb-5">
                     <thead>
                         <tr>
@@ -66,10 +66,10 @@
                     </tbody>
                 </table>
                 <div class="totalPriceContainer">
-                    <p>Montant total : &emsp; <span id="totalPrice"></span></p>
+                    <p class="col-12">Montant total : &emsp; <span id="totalPrice"></span></p>
                 </div>
                 <div class="container text-center">
-                    <button type="button" class="empty_cart__btn btn btn-danger mb-3 mt-4 col-5 col-md-3 col-lg-2">
+                    <button type="button" id="empty_cart__btn" class="btn btn-danger mb-3 mt-4 col-5 col-md-3 col-lg-2">
                         Vider le panier
                     </button>
                 </div>
