@@ -89,7 +89,8 @@
                         <input id="address" required=required type="text" class="form-control" placeholder="Rue et n°">
                     </div>
                     <div class="col-lg-6 mb-3">
-                        <input required=required type="text" class="form-control" placeholder="Code postal">
+                        <input required=required pattern="[0-9]{5}" type="text" class="form-control"
+                            placeholder="Code postal   'ex : 75000'">
                     </div>
                     <div class="col-lg-6 mb-3">
                         <input id="city" required=required type="text" class="form-control" placeholder="Ville">
