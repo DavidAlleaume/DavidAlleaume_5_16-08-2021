@@ -189,7 +189,7 @@ orderForm.addEventListener(`submit`, (e) => {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(order),
         }
-        // Envoie de la requête via l'API Fetch
+        // Envoie de la requête via Fetch
         fetch(`http://localhost:3000/api/cameras/order`, postRequest)
             // réception de la réponse au format json
             .then((res) =>

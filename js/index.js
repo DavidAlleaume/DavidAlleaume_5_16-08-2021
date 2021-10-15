@@ -18,7 +18,7 @@ function NewCard(camera) {
 }
 // Fonction permettant de récupérer les produits
 function GetProductsInfos() {
-    /*Requête de type GET via l'API Fetch à l'adresse fournie dans les spécifications pour récupérer
+    /*Requête de type GET via Fetch à l'adresse fournie dans les spécifications pour récupérer
      tous les produits*/
     fetch("http://localhost:3000/api/cameras")
         /*Récupération du résultat de la requête au format json sous forme d'objet Promise avec 
